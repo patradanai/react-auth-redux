@@ -1,10 +1,16 @@
 import * as actionType from "./actionType";
 import axios from "axios";
 
-export const actionLogin = msg => {
-  return { type: actionType.LOGIN, response: msg };
+export const actionLogin = () => {
+  return async dispatch => {
+    // const response = await axios.post();
+    // const feedback = await response.json();
+    dispatch({ type: actionType.LOGIN, response: [] });
+  };
 };
 
-export const actionLogout = msg => {
-  return { type: actionType.LOGOUT, response: msg };
+export const actionLogout = () => {
+  return async dispatch => {
+    dispatch({ type: actionType.LOGOUT, response: [] });
+  };
 };

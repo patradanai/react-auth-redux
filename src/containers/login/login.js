@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.css";
+import { actionLogin } from "../../store/actions/actionAuth";
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [userName, setUserName] = useState("");
   const [passWord, setPassWord] = useState("");
 
@@ -18,7 +21,7 @@ const Login = () => {
           name="normal_login"
           className="login-form"
           initialValues={{ remember: true }}
-          onFinish={onFinish}
+          onFinish={() => dispatch(actionLogin())}
         >
           <Form.Item
             name="username"
